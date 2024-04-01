@@ -3,7 +3,6 @@ from webdeck_custom_module import *
 import psutil
 from pypresence import Presence
 import time
-import threading
 
 
 webdeck = WebDeckAddon("DiscordTools")
