@@ -23,15 +23,6 @@ def toggle_rich_presence():
     global rpc_toggle
     global RPC
     global start_time
-    while rpc_toggle:
-        RPC.update(details=f"CPU: {str(round(psutil.cpu_percent(), 1))}%",
-                state=f"RAM: {str(round(psutil.virtual_memory().percent, 1))}%",
-                large_image="webdeck_icon",
-                large_text="Webdeck, THE StreamDeck alternative.",
-                start=start_time,
-                buttons=[{"label": "WebDeck (Free StreamDeck)", "url": "https://github.com/Lenochxd/WebDeck"}])
-        print("DiscordTools: Discord RichPresence updated!")
-        time.sleep(15)
 
     if not rpc_toggle:
         print("DiscordTools: Discord RichPresence toggled to True!")
@@ -43,3 +34,13 @@ def toggle_rich_presence():
         rpc_toggle = False
         RPC.close()
         print("DiscordTools: Closed RichPresence connection!")
+
+    while rpc_toggle:
+        RPC.update(details=f"CPU: {str(round(psutil.cpu_percent(), 1))}%",
+                state=f"RAM: {str(round(psutil.virtual_memory().percent, 1))}%",
+                large_image="webdeck_icon",
+                large_text="Webdeck, THE StreamDeck alternative.",
+                start=start_time,
+                buttons=[{"label": "WebDeck (Free StreamDeck)", "url": "https://github.com/Lenochxd/WebDeck"}])
+        print("DiscordTools: Discord RichPresence updated!")
+        time.sleep(15)
