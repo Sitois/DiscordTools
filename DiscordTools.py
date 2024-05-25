@@ -1,21 +1,19 @@
-from webdeck_custom_module import *
+import pywebdeck
 
 import psutil
 from pypresence import Presence
 import time
 
 
-webdeck = WebDeckAddon("DiscordTools")
-command1 = webdeck.define_command(name='RichPresence Toggle', description='Toggle the Discord RPC')
-command1.button.button_names.en = "Discord RPC"
-command1.button.button_names.fr = "Discord RPC"
-command1.button.image = "rpc_icon.png"
+webdeck = pywebdeck.WebDeckAddon("DiscordTools")
+command1 = webdeck.define_command(names={"en": "RichPresence Toggle", "fr": 'Présence Discord On/Off'}, descriptions={"en": "Toggle the Discord Rich Presence", "fr": "On/Off la présence Discord"})
+command1.button.button_names.en = "Discord Presence"
+command1.button.button_names.fr = "Discord Présence"
 
 rpc_toggle = False
 start_time = time.time()
 
 RPC = Presence("1223210717126201385", pipe=0)
-
 
 
 @command1.make
